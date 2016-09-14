@@ -8,6 +8,7 @@ app.use(cors());
 // Authentication middleware provided by express-jwt.
 // This middleware will check incoming requests for a valid
 // JWT on any routes that it is applied to.
+console.log(process.env.AUTH0_SECRET);
 const authCheck = jwt({
   secret: new Buffer(process.env.AUTH0_SECRET, 'base64'),
   audience: process.env.AUTH0_CLIENT_ID

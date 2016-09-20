@@ -45,8 +45,10 @@ const ContactStore = new ContactStoreClass();
 // and look for our various action types so we can
 // respond appropriately
 ContactStore.dispatchToken = AppDispatcher.register(action => {
-
+  console.log('action type');
+  console.log(action.actionType);
   switch(action.actionType) {
+
     case ContactConstants.RECIEVE_CONTACTS:
       setContacts(action.contacts);
       // We need to call emitChange so the event listener
@@ -55,6 +57,7 @@ ContactStore.dispatchToken = AppDispatcher.register(action => {
       break
 
     case ContactConstants.RECIEVE_CONTACT:
+      console.log('set contact');
       setContact(action.contact);
       ContactStore.emitChange();
       break
